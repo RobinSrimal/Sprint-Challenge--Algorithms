@@ -96,8 +96,38 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # this will be an implemenetation of selection sort
+
+        
+        #check if the list has a length of one or the end of the iterative sorting
+        # has been reached
+        while self.can_move_right():
+
+            # pick up first item
+            self.swap_item()
+
+            # then move through the list and compare item to find smallest item
+            while self.can_move_right():
+
+                self.move_right()
+
+                if self.compare_item() == 1:
+
+                    self.swap_item()
+                    
+            # the robot now holds the smallest item in his hands and is at the 
+            # end of the list
+
+            while self.compare_item() is not None:
+
+                self.move_left()
+
+            self.swap_item()
+
+            # the smallest item is now at the beginning of the list, now the robot
+            # needs to move one step to the right and repeat the process
+
+            self.move_right()
 
 
 if __name__ == "__main__":
